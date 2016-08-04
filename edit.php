@@ -4,7 +4,15 @@
 	require_once "city.class.php";	
 	require_once "profile.class.php";
 	
-	$user = new Profile($_SESSION['id']);
+	if (isset($_SESSION['id']))
+	{
+		$user = new Profile($_SESSION['id']);
+	}	
+	else 
+	{
+		header("HTTP/1.0 403 Forribean");
+		exit("Доступ запрещен");
+	}
 	
 	if (isset($_POST['name']) && isset($_POST['surname'])) 
 	{
