@@ -128,6 +128,6 @@ class Profile
 	
 	public function setNewPhoto($tmp_file)
 	{
-		move_uploaded_file($tmp_file, Profile::photoPath($this->id));
+		return move_uploaded_file($tmp_file, Profile::photoPath($this->id));
 	}
 }
